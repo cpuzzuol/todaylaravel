@@ -29,38 +29,9 @@ Route::middleware('cas.auth')->group(function () {
 Route::get('checklogin', function (Request $request) {
     if(!cas()->isAuthenticated()) {
 			return false;
+//			cas()->authenticate();
 		}
 		$response['user'] = cas()->user();
 		$response['roles'] = ['admin_super', 'admin', 'editor_super'];
 		return response()->json($response);
 });
-
-//Route::middleware('cas.auth')->group(function () {
-//	Route::get('validateticket', function (Request $request) {
-//		cas()->authenticate();
-//		$ticket = $request->ticket;
-//		return response()->json($ticket);
-//	});
-//});
-
-//Route::get('validate', function (Request $request) {
-//	cas()->authenticate();
-////	cas()->setAttributes();
-////	$ticket = $request->ticket;
-//	return response()->json(cas()->isAuthenticated());
-//});
-
-
-
-//Route::get('checklogin', function (Request $request) {
-//	if( ! cas()->checkAuthentication() )
-//	{
-//		if ($request->ajax()) {
-//			return response('Unauthorized.', 401);
-//		}
-//		cas()->authenticate();
-//
-//	}
-//	session()->put('cas_user', cas()->user() );
-//	return response()->json("tacos");
-//});
