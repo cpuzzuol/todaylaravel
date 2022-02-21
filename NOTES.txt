@@ -1,0 +1,7 @@
+Things needed to install on Apache for production (worked on Ubuntu 20.04 with Laravel 8)
+
+Laravel docs: https://laravel.com/docs/9.x/deployment
+sudo apt-get install php7.4-curl
+sudo apt-get install libapache2-mod-php7.4
+sudo apt-get install php7.4-dom
+VHosts Setup: https://stackoverflow.com/questions/18272557/laravel-forbidden-you-dont-have-permission-to-access-on-this-server
